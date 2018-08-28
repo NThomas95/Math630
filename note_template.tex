@@ -1,0 +1,94 @@
+%\documentclass[12pt]{article}
+\chapter{Title}
+%
+%\usepackage[margin=1in]{geometry}
+%\usepackage{amsmath}
+%\usepackage{framed}
+%\usepackage{amsthm}
+%\usepackage{amsfonts}
+%\usepackage{graphicx}
+%\usepackage{tcolorbox}
+%\usepackage{bm}
+%
+%\newtheorem{lem}{Lemma}
+%\newtheorem{define}{Definition}[section]
+%\newtheorem{axim}{Axiom}
+%\newtheorem{soln}{Solution}
+%\newtheorem{thm}{Theorem}
+%\newtheorem{ex}{Example}[section]
+%
+%\begin{document}
+
+
+\section{Basic Reachability Notions}
+
+\begin{leftbar}
+\begin{define}
+    An \textbf{event} is a pair $(x,t)\in (\mathcal{X} x \mathcal{T})$.
+
+    \begin{itemize}
+        \item The event (z,t) \textbf{can be reached from} the event (x,$\sigma$) iff there is a path of $\Sigma$  on [$\sigma,\tau$] whose initial state is x and final state is z, that is, if there exists an $\omega \in \mathcal{U}^{[\sigma,\tau)}$ such that
+        
+        $$
+        \phi(\tau,\sigma,x,\omega)=z.
+        $$
+        
+        One also says that (x,$\sigma$) \textbf{can be controlled to} (z,$\tau$).
+        
+        \item If $x,z \in \mathcal{X}, T\geq 0 \in \mathcal{T}$, and there exists $\sigma,\tau \in \mathcal{T}$ with $\tau-\omega =T$ such that (z,$\tau$) can bereached from (x,$\sigma$), then z \textbf{can be reached from x in time T}. Equivilantly, x \textbf{can be contolled to z in time T}.
+        
+        \item z \textbf{can be reached from} x (or x \textbf{can be controlled to} z) if this happens for at least one T.
+    \end{itemize}
+\end{define}
+\end{leftbar}
+
+
+
+By the identity axioim, every state in $\Sigma$ can be reached from itself. Also note that if $\Sigma$ is time-invariant, then z can be reached from x in time T iff $(z,t+T)$ can be reached from $(x,t)$ for any $t\in \mathcal{T}$; thus, there is no need to consider explicitly the notion of event for time-invariant systems. 
+
+We use the notation $(x,\sigma)\leadsto(z,\tau)$ to mean that the event $(z,\tau)$ can be reached from $(x,\sigma)$. If we are talking only about states, we use $x\leadsto_{T}z$ if z can ve reached from x in time T. We use $x\leadsto z$ if the time to reach z from x is not stated.
+
+\begin{leftbar}
+\begin{lem}[Excercise] Prove the following statements:
+
+    \begin{itemize}
+    
+        \item (a) If $(x,t)\leadsto(z,\tau)$ and $(z,\tau)\leadsto(y,\mu)$, then $(x,t)\leadsto(y,\mu)$
+        
+        \item (b) If $(x,\sigma)\leadsto(y,\mu)$, and $\sigma<\tau<\mu$, then there exists a $z\in\mathcal{X}$ such that $(x,\sigma)\leadsto(z,\tau)$ and $(z,\tau)\leadsto(y,\mu)$.
+        
+    \end{itemize}
+\end{lem}
+\end{leftbar}
+
+
+\begin{soln}
+    \begin{itemize}
+    
+        \item (a) By the semigroup axiom \ref{semigroup}, since $\omega_{1}\in\mathcal{U}^{[t,\tau)}$ is addmisable for $x\leadsto z$, and $\omega_{2}\in\mathcal{U}^{[\tau,\mu)}$ is addmisable for $z\leadsto y$, then $\omega=\omega_{1}\omega_{2}$ is also addmisable for $x\leadsto y$. Therefore $(x,\sigma)\leadsto(y,\mu)$. 
+      
+    \end{itemize}
+\end{soln}
+
+\begin{leftbar}
+\begin{define}
+    The system $\Sigma$ is \textbf{(completely) controllable on the interval} $[\sigma,\tau]$ if for each $x,z\in\mathcal{X}$, it holds that $x\leadsto_{T}z$. It is just \textbf{(completely) controllable} if $x\leadsto z \ \ \forall x,z\in\mathcal{X}$
+    
+\end{define}
+\end{leftbar}
+
+
+\section{Continuous-Time Systems}
+
+\subsection{Controllability}
+
+\begin{leftbar}
+\begin{define}
+    Let $\mathbb{K}$ be a field and let $\bm{A}\in\mathbb{K}^{nxn},\bm{B}\in\mathbb{K}^{nxm}$. The pair $(\bm{A},\bm{B})$ is called \textbf{controllable (or reachable)} if $rank(\bm{R})=rank(\bm{R}(\bm{A},\bm{B}))=n$
+\end{define}
+\end{leftbar}
+
+
+test
+
+%\end{document}
