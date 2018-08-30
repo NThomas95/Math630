@@ -51,7 +51,7 @@
 		\item Since $\varnothing \in \mathfrak{A}$ then $X=\varnothing^{c}\in\mathfrak{A}$
 		\item Let $\{A_{i}/i\in\mathbb{N}\}$ be a countable family of elements of $\mathfrak{A}$. Be definition, $\forall i\in\mathbb{N}, A_{i}^{c}\in\mathfrak{A}$. In other words, $\{A_{i}^{c}/i\in\mathbb{N}\}$
 	\end{itemize}
-	\[\therefore,\hspace{3em} \cap_{i=1}^{\infty}A_{i}=(\cup_{i-1}^{\infty}A_{i}^{c})^{c}\in\mathfrak{A}\]
+	\[\therefore,\hspace{3em} \cap_{i=1}^{\infty}A_{i}=(\cup_{i=1}^{\infty}A_{i}^{c})^{c}\in\mathfrak{A}\]
 \end{proof}
 
 \begin{ex}
@@ -118,7 +118,7 @@ The measure is said to be finite if $\mu(x)<\infty$ and said to be $\sigma$-fini
 	Moreover: 
 	\[
 	\begin{aligned}
-	\lambda(A) &= \inf \{\lambda(u) | \text{u is open and } A\subset u \}
+	\lambda(A) &= \inf \{\lambda(u) | \text{u is open and } A\subset u \}\\
 	\lambda(A) &= \sup \{\lambda(u) | \text{k is closed and } k\subset A \}
 	\end{aligned}
 	\]
@@ -143,9 +143,65 @@ The measure is said to be finite if $\mu(x)<\infty$ and said to be $\sigma$-fini
 
 \begin{leftbar}
 \begin{prop}
-	Let $T:\mathbb{R}^{n}\leftarrow\mathbb{R}^{n}$ be a linear mapping. We denote $TA = \{y\in\mathbb{R}^{n} | \exists x\in A, y=Tx \}$. Then $\lambda(TA)=|det(T)|\lambda(A)$
+	Let $T:\mathbb{R}^{n}\rightarrow\mathbb{R}^{n}$ be a linear mapping. We denote $TA = \{y\in\mathbb{R}^{n} | \exists x\in A, y=Tx \}$. Then $\lambda(TA)=|det(T)|\lambda(A)$
 \end{prop}
 \end{leftbar}
+
+\begin{leftbar}
+\begin{corollary}
+	The Lebesgue Measure is invariant by rotation and has the scaling property. ie $\forall t>0, \lambda(tA) = t^{n}\lambda(A)$
+\end{corollary}
+\end{leftbar}
+
+\begin{proof}
+	A rotation R and scaling T are linear transformations. Further, $|det(R)|=1$ and $|det(T)|=t^{n}$.
+\end{proof}
+
+\begin{leftbar}
+\begin{define}
+	Let (X,$\mathfrak{A},\mu$) be a measure space. A subset $A\subset \mathfrak{A}$ is said to have a measure zero if it is measurable and the measure $\mu(A)=0$.
+\end{define}
+\end{leftbar}
+
+\begin{leftbar}
+\begin{prop}
+	A singleton in $\mathbb{R}$ has a measure zero. ie $\forall x\in\mathbb{R}$, $\lambda(\{x\})=0$.
+\end{prop}
+\end{leftbar}
+
+\begin{proof}
+	From the previous theorem we know that:
+	
+	\[
+	\begin{aligned}
+	\lambda(\{x\}) &= \inf\{\lambda(u) | \text{u is open and } \{x\}\subset u\}\\
+	               &= \lim_{\epsilon\rightarrow0^{+}}\lambda(\{y/ |x-y|<\epsilon \})\\
+	               &= \lim_{\epsilon\rightarrow0^{+}}2\epsilon\\
+	               &= 0
+	\end{aligned}
+	\]
+\end{proof}
+
+\begin{leftbar}
+\begin{corollary}
+	Every countable subset $A=\{x_{i}\in\mathbb{R}/i\in\mathbb{N}\}$ of $\mathbb{R}$ has measure 0.
+\end{corollary}
+\end{leftbar}
+
+\begin{proof}
+	Let $A=\cup_{i=1}^{\infty}A_{i}$. Then, using the properties of measures, we have:
+	
+	\[
+	\begin{aligned}
+	\lambda(A) &= \lambda(\bigcup_{i=1}^{\infty}A_{i})\\
+	           &= \sum_{i=1}^{\infty}\lambda(A_{i})\\
+	           &= 0
+	\end{aligned}
+	\]
+\end{proof}
+
+
+
 
 
 
